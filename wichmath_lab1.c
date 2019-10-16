@@ -2,9 +2,11 @@
 #include<stdio.h>
 #include<locale.h>
 #include<math.h>
-#include"myfunc.h"
+
 double a, b;
 int n;
+double resI[6] = {0,0,0,0};
+double resR[6] = {0,0,0,0};
 
 double rectLeft(double h, double sm);
 double rectR(double h);
@@ -36,6 +38,20 @@ int main() {
     return 0;
 }
 
+void printTab(){
+  printf("I Table\n");
+  printf("------------------------------------------------------------------------------------------------\n");
+  printf("| Left rectangle | Right rectangle |   Trapeze    |  Simpson's   | First method | Second method |\n");
+  printf("------------------------------------------------------------------------------------------------\n");
+  printf("|   %lf     |    %lf     |   %lf   |   %lf   |   %lf   |    %lf   |\n", resI[0], resI[1], resI[2], resI[3], resI[4], resI[5]);
+  printf("------------------------------------------------------------------------------------------------\n");
+  printf("R Table\n");
+  printf("------------------------------------------------------------------------------------------------\n");
+  printf("| Left rectangle | Right rectangle |   Trapeze    |  Simpson's   | First method | Second method |\n");
+  printf("------------------------------------------------------------------------------------------------\n");
+  printf("|   %lf     |    %lf     |   %lf   |   %lf   |   %lf   |    %lf   |\n", resR[0], resR[1], resR[2], resR[3], resR[4], resR[5]);
+  printf("------------------------------------------------------------------------------------------------\n");
+}
 
 double intfunc(double x){
   return 1 / (x + 5);
@@ -55,8 +71,8 @@ void mainMenu() {
     printf("Main menu\n");
     printf("1. Constant step's methods\n");
     printf("2. Variable step's methods\n");
-    printf("3. Exit\n");
-
+    printf("3. Print table\n");
+    printf("4. Exit\n");
 
     int value = getValue(3);
 
@@ -73,6 +89,11 @@ void mainMenu() {
             break;
         }
         case 3:
+        {
+            printTab();
+            break;
+        }
+        case 4:
         {
             exit(0);
             break;
@@ -99,7 +120,9 @@ void secondMenu() {
         case 1:
         {
             double I = rectLeft(step,0);
+            resI[0] = I;
             double rch = countR(1);
+            resR[0] = rch;
             printf("Definite integral %lf\nR = %lf\n", I, rch);
             submenu();
             break;
@@ -107,7 +130,9 @@ void secondMenu() {
         case 2:
         {
             double I = rectR(step);
+            resI[1] = I;
             double rch = countR(2);
+            resR[1] = rch;
             printf("Definite integral %lf\nR = %lf\n", I, rch);
             submenu();
             break;
@@ -116,6 +141,8 @@ void secondMenu() {
         {
             double I = trap(step);
             double rch = countR(5);
+            resI[2] = I;
+            resR[1] = rch;
             printf("Definite integral %lf\nR = %lf\n", I, rch);
             submenu();
             break;
@@ -123,6 +150,7 @@ void secondMenu() {
         case 4:
         {
             double I = simpson(step);
+            resI[3] = I;
             printf("Definite integral %lf\n", I);
             submenu();
             break;
@@ -272,7 +300,7 @@ void firstAlg() {
         I2 = trap(step / 2);
         step /= 2;
     } while (abs(I1 - I2) >= eps);
-
+    resI[4] = I2;
     printf("Definite integral %lf\n", I2);
 
 }
@@ -295,7 +323,7 @@ void secondAlg() {
       I2 = rectLeft(hv,hs);
       hv = hs;
   } while (abs(I1 - I2) >= eps);
-
+ resI[5] = I2;
   printf("Definite integral %lf\n", I2);
 }
 
