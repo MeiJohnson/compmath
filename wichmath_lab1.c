@@ -38,7 +38,7 @@ int main() {
     return 0;
 }
 
-void printTab(){
+void printTab() {
   printf("I Table\n");
   printf("------------------------------------------------------------------------------------------------\n");
   printf("| Left rectangle | Right rectangle |   Trapeze    |  Simpson's   | First method | Second method |\n");
@@ -51,6 +51,7 @@ void printTab(){
   printf("------------------------------------------------------------------------------------------------\n");
   printf("|   %lf     |    %lf     |   %lf   |   %lf   |   %lf   |    %lf   |\n", resR[0], resR[1], resR[2], resR[3], resR[4], resR[5]);
   printf("------------------------------------------------------------------------------------------------\n");
+  submenu();
 }
 
 double intfunc(double x){
@@ -74,7 +75,7 @@ void mainMenu() {
     printf("3. Print table\n");
     printf("4. Exit\n");
 
-    int value = getValue(3);
+    int value = getValue(4);
 
     switch (value)
     {
@@ -214,7 +215,7 @@ void submenu() {
 int getValue(int count) {
     int value;
 
-    while (scanf("\n%d", &value) != 1 || value < 1 || value > count) {
+    while (scanf("%d", &value) != 1 || value < 1 || value > count) {
         printf("Incorrect input. Try again: ");
         //scanf_s("%d", &value);
     }
