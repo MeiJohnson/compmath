@@ -8,7 +8,7 @@ double intfunc(double x, double y){
 }
 
 int main(){
-  double a = 2,b = 8,c = 8,d = 10;
+  double a = 2,b = 8,c = 10,d = 15;
   //scanf("Введите a, b, c, d\n %lf %lf %lf %lf",a,b,c,d);
   printf("a = %lf, b = %lf, c = %lf, d = %lf\n", a, b, c, d);
   double nx = 10000, ny = 10000;
