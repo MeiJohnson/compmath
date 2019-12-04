@@ -33,6 +33,15 @@ def getData():
   return res
 
 def eiler():
+  """
+  src[0] - функция
+  src[1] - a
+  src[2] - b
+  src[3] - y0
+  src[4] - n
+  src[5] - h
+
+  """
   src = getData()
   print("x = ",src[1],"y = ", src[3], "h = ", src[5])
   x = src[1]
@@ -55,6 +64,14 @@ def Fi(x, y, h, l):
   return (k1 + 2 * k2 + 2 * k3 + k4) / 6
 
 def runge():
+  """
+  src[0] - функция
+  src[1] - a
+  src[2] - b
+  src[3] - y0
+  src[4] - n
+  src[5] - h
+  """
   src = getData()
   x = src[1]
   y = src[3]
@@ -90,9 +107,9 @@ def systemUr():
   h = float(input("Введите h ")) 
   t = float(input("Введите a "))
   b = float(input("Введите b "))
-  x = float(input("Введите х(1) "))
-  y = float(input("Введите y(1) "))
-  z = float(input("Введите z(1) "))
+  x = float(input("Введите х(0) "))
+  y = float(input("Введите y(0) "))
+  z = float(input("Введите z(0) "))
 
   while t < b:
      print("t = ", round(t, 5), "x = ", round(x, 5), "z = ", round(z, 5), "y = ", round(y, 5))
