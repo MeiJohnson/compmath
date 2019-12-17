@@ -53,12 +53,12 @@ def find_sin():
   return sum_i_sin
 
 def row_ln():
+    #Находим ln(1.5)
   n = 1
   x = 0.5
   summa = 0
   eps = 0.000001
   summa_i = ((-1)**(n+1)*x**n)/n
-  #print("n = ", n, "sum = ", round(summa_i,7))
   
   t = PrettyTable()
   t.field_names = ["sums", "n"]
@@ -73,6 +73,7 @@ def row_ln():
   return summa_i
 
 def row_arctg():
+    #Находим arctg(pi/6)
   n = 0
   x = math.pi/6
   summa = 0
