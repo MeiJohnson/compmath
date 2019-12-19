@@ -5,7 +5,7 @@ a_values_exp = [0.9999998, 1.000000, 0.5000063, 0.1666674, 0.0416350, 0.0083298,
 a_values_sin = [1.000000002, -0.166666589, 0.08333075, -0.000198107, 0.000002608]
 
 def find_exp():
-  #Находим exp(0.5)
+  #Находим exp(0.5) методом Чебышева
   k = 0
   x = 0.5 
   p = 1
@@ -30,7 +30,7 @@ def find_exp():
   return sum_i_exp
 
 def find_sin():  
-  #Находим sin(pi/6)
+  #Находим sin(pi/6) методом Чебышева
   k = 0
   x = math.pi/6
   eps = 0.00000006
@@ -53,7 +53,7 @@ def find_sin():
   return sum_i_sin
 
 def row_ln():
-    #Находим ln(1.5)
+    #Находим ln(0.5) разложением в ряд
   n = 1
   x = 0.5
   summa = 0
@@ -73,7 +73,7 @@ def row_ln():
   return summa_i
 
 def row_arctg():
-    #Находим arctg(pi/6)
+    #Находим arctg(pi/6) разложением в ряд
   n = 0
   x = math.pi/6
   summa = 0
@@ -94,9 +94,13 @@ def row_arctg():
   return summa_i
 
 def main():
+  print("Exp(0.5)")
   a = find_exp()
+  print("Sin(pi/6)")
   b = find_sin()
+  print("Ln(0.5)")
   c = row_ln()
+  print("Arctg(pi/6)")
   d = row_arctg()
 
 if __name__ == "__main__":
